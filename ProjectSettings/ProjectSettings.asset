@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 15
-  productGUID: c477eb79a060f3243a5c637b9fdf1d87
+  productGUID: 9b99ff87fc0768146a9c3fddd8aa3437
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Capstone
+  productName: ToTheCapstone
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -648,8 +648,8 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: f0965041-5168-4b9a-945a-4571049906dd
-  projectName: Capstone
+  cloudProjectId: 70a910fd-e03e-4393-99ad-e7830a3093b1
+  projectName: ToTheCapstone
   organizationId: zard7
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
