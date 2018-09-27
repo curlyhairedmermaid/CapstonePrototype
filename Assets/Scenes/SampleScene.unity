@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 200579820}
   - component: {fileID: 200579819}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 1080576506}
   - component: {fileID: 1080576511}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -486,7 +486,7 @@ GameObject:
   - component: {fileID: 1513583499}
   - component: {fileID: 1513583498}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: HighlightExample
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
