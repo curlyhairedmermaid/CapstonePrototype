@@ -4,12 +4,12 @@ using UnityEngine;
 /// <summary>
 /// This code makes the object in question highlight yellow when moused over
 /// </summary>
-public class Highligh : MonoBehaviour
+public class HighlightonRollover : MonoBehaviour
 {
     /// <summary>
     /// The material highlight
     /// </summary>
-    Material ToHighlight;
+    Material toHighlight;
     /// <summary>
     /// if the item is being overed over or not
     /// </summary>
@@ -19,7 +19,7 @@ public class Highligh : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        ToHighlight = GetComponent<Renderer>().material;
+        toHighlight = GetComponent<Renderer>().material;
     }
 
     // Update is called once per frame
@@ -27,12 +27,12 @@ public class Highligh : MonoBehaviour
     {
         if (hovering==true)
         {
-            ToHighlight.color = Color.yellow;
+            toHighlight.color = Color.yellow;
         }
         else
         {
             
-            ToHighlight.color = Color.red;
+            toHighlight.color = Color.red;
         }
         hovering = false;
 
