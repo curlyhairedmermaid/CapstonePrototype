@@ -18,7 +18,7 @@ public class ToLevel1 : MonoBehaviour
             RaycastHit hitInfo;
             if (Physics.Raycast(ray, out hitInfo))
             {
-                SceneManager.LoadScene("Level1", LoadSceneMode.Single);
+                //SceneManager.LoadScene("Level1", LoadSceneMode.Single);
             }
         }
     }
