@@ -17,13 +17,14 @@ public class ToTac : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit))
-            {
-                Destroy(GameObject.Find("MovetoTac"));
-                if(hit.transform.position.x <= 16.5)
-                {
-                    if(hit.transform.)
-                }
+			{			
+				if(hit.collider.gameObject.tag == "Clickable")
+				{
+					SceneManager.LoadScene("Tac", LoadSceneMode.Single);
+				}
+                
             }
+
         }
     }
 }
