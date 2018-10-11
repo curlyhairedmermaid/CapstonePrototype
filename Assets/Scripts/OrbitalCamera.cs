@@ -71,11 +71,11 @@ public class OrbitalCamera : MonoBehaviour {
             return (pitch - pitchMin) / (pitchMax - pitchMin);
         }
     }
-    /// <summary>
-    /// setting the location of the dolly
-    /// </summary>
+    ///
+    Transform cam;
     void Start () {
-       // dollyPosition = cam.localPosition;
+       // cam = GetComponentInChildren<Camera>().transform;
+        dollyPosition = cam.localPosition;
 	}
 	
 	// Update is called once per frame
@@ -85,9 +85,7 @@ public class OrbitalCamera : MonoBehaviour {
 
         Zoom();
     }
-    /// <summary>
-    /// Enables the player to zoom in and out
-    /// </summary>
+
     private void Zoom()
     {
         dollyPosition += new Vector3(0, 0, Input.mouseScrollDelta.y);
@@ -97,9 +95,7 @@ public class OrbitalCamera : MonoBehaviour {
 
         cam.localPosition = Vector3.Lerp(cam.localPosition, dollyPosition, Time.deltaTime * dollyEaseMultiplier);
     }
-    /// <summary>
-    /// enables the player to look around
-    /// </summary>
+
     private void LookAround()
     {
         float lookX = Input.GetAxis("Mouse X");
@@ -112,9 +108,7 @@ public class OrbitalCamera : MonoBehaviour {
 
         transform.eulerAngles = new Vector3(pitch, yaw, 0);
     }
-    /// <summary>
-    /// in the editor draws where the camera is looking
-    /// </summary>
+
     void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(transform.position, Vector3.one);

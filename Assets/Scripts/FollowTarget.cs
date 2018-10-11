@@ -3,7 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FollowTarget : MonoBehaviour {
+    /// <summary>
+    /// The target we're following
+    /// </summary>
     public Transform target;
+    /// <summary>
+    /// the amount the camera eases to the player as the player moves away
+    /// </summary>
     public float easeMultiplier = 10;
 
     public float offsetMinY = 1;
