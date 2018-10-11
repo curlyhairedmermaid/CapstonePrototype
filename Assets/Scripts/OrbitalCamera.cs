@@ -4,37 +4,38 @@ using UnityEngine;
 /// <summary>
 /// logic for an orbital camera
 /// </summary>
-public class OrbitalCamera : MonoBehaviour {
+public class OrbitalCamera : MonoBehaviour
+{
     /// <summary>
-    /// pitch = y
+    /// pitch = x
     /// </summary>
     float pitch = 0;
     /// <summary>
-    /// yaw = x
+    /// yaw = y
     /// </summary>
     float yaw = 0;
     /// <summary>
-    /// the min amount on the y axis
+    /// the min amount on the x axis
     /// </summary>
     public float pitchMin = 0;
     /// <summary>
-    /// the max amount on the y axis 
+    /// the max amount on the x axis 
     /// </summary>
     public float pitchMax = 80;
     /// <summary>
-    /// the min amount on the x axis can be seen
+    /// the min amount on the y axis can be seen
     /// </summary>
     public float yawMin = -80;
     /// <summary>
-    /// the farthest amount on the x axis can be seen
+    /// the farthest amount on the y axis can be seen
     /// </summary>
     public float yawMax = 80;
     /// <summary>
-    /// the sensitivity of y movment
+    /// the sensitivity of x movment
     /// </summary>
     public float pitchSensitivity = 1;
     /// <summary>
-    /// the sensitivy of x movment
+    /// the sensitivy of y movment
     /// </summary>
     public float yawSensitivity = 5;
     /// <summary>
@@ -73,15 +74,19 @@ public class OrbitalCamera : MonoBehaviour {
     }
     ///
     Transform cam;
-    void Start () {
-       // cam = GetComponentInChildren<Camera>().transform;
-        dollyPosition = cam.localPosition;
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate()
+    void Start()
     {
-        LookAround();
+        cam = GetComponentInChildren<Camera>().transform;
+        dollyPosition = cam.position;
+
+        
+
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+       LookAround();
 
         Zoom();
     }
@@ -93,7 +98,7 @@ public class OrbitalCamera : MonoBehaviour {
         dollyPosition.z = Mathf.Clamp(dollyPosition.z, -dollyMaxDistance, -dollyMinDistance);
 
 
-        cam.localPosition = Vector3.Lerp(cam.localPosition, dollyPosition, Time.deltaTime * dollyEaseMultiplier);
+        cam.localPosition = Vector3.Lerp(cam.localPosition, dollyPosition, (Time.deltaTime * dollyEaseMultiplier));
     }
 
     private void LookAround()
@@ -106,7 +111,7 @@ public class OrbitalCamera : MonoBehaviour {
 
         pitch = Mathf.Clamp(pitch, pitchMin, pitchMax);
 
-        transform.eulerAngles = new Vector3(pitch, yaw, 0);
+       transform.eulerAngles = new Vector3(pitch, yaw, 0);
     }
 
     void OnDrawGizmos()

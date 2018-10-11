@@ -14,7 +14,7 @@ public class ToOverview : MonoBehaviour {
 	void Update () {
 		
 	}
-	void GoToLevel1 () {
+	public void GoToOverview () {
 		SceneManager.LoadScene ("OVerviewLevel", LoadSceneMode.Single);
 	}
 }
