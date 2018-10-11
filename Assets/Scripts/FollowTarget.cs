@@ -15,8 +15,7 @@ public class FollowTarget : MonoBehaviour {
         orbit = GetComponent<OrbitalCamera>();
     }
 	void FixedUpdate () {
-
         Vector3 offset = new Vector3(0, Mathf.Lerp(offsetMinY, offsetMaxY, orbit.pitchPercent));
-        transform.position = Vector3.Lerp(transform.position, target.position+offset, Time.fixedDeltaTime * easeMultiplier);
+       transform.position = Vector3.Lerp(transform.position, target.position+offset, Time.fixedDeltaTime * easeMultiplier);
 	}
 }

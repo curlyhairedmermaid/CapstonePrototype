@@ -16,12 +16,15 @@ public class PlayerMovementArrow : MonoBehaviour {
 	void Update ()
     {
         MoveAround();
+        //makes player jump
         if (Input.GetButtonDown("Jump"))
         {
             body.AddForce(Vector3.up*7, ForceMode.Impulse);
         }
     }
-
+    /// <summary>
+    /// Moves Around the players
+    /// </summary>
     private void MoveAround()
     {
         float h = Input.GetAxis("Horizontal");

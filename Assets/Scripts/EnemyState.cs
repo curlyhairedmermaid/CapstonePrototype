@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Abstact over all class for the enemy's state
+/// </summary>
 abstract public class EnemyState {
     private EnemyMovement movement;
     abstract public EnemyState Update();
