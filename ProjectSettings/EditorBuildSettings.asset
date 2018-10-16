@@ -6,12 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 37f4011544f867e44be89807f2cf6bcc
+  - enabled: 1
     path: Assets/Scenes/OVerviewLevel.unity
     guid: 184cb56e966e47842b12a6051f1592c5
   - enabled: 1
-    path: Assets/Scenes/Tac.unity
-    guid: e47d1b5817b350e408e66522498ad531
-  - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: fe8f67bf381abcc44abd539d05084eff
+  - enabled: 1
+    path: Assets/Scenes/Tac.unity
+    guid: e47d1b5817b350e408e66522498ad531
   m_configObjects: {}
