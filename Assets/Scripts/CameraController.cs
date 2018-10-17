@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour
         if (viewTarget)
         {
             //easing
-            transform.position += new Vector3((viewTarget.position.x - (transform.position.x - 4)) * .1f, 0, (viewTarget.position.z - (transform.position.z - 2)) * .1f);
+            transform.position += new Vector3((viewTarget.position.x - (transform.position.x)) * .1f, 0, (viewTarget.position.z - (transform.position.z - 6)) * .1f);
         }
     }
 }
