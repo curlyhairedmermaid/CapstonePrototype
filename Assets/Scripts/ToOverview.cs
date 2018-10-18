@@ -2,18 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+/// <summary>
+/// Goes to the overview level
+/// </summary>
 public class ToOverview : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	/// <summary>
+	/// Gos to overview.
+	/// </summary>
 	public void GoToOverview () {
 		SceneManager.LoadScene ("OVerviewLevel", LoadSceneMode.Single);
 	}

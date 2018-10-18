@@ -31,18 +31,9 @@ public class EnemyStatePursue : EnemyState
 /// </summary>
     override public EnemyState Update()
     {
-        //Put behavior here!'
+        //Put behavior here!
         //put transitions here!
-		transform.position += transform.forward * MoveSpeed * Time.deltaTime;
 
-
-
-		if (Vector3.Distance (transform.position, Player.position) <= MaxDist) {
-			return new EnemyStateIdle ();
-
-		} else if (Vector3.Distance (transform.position, Player.position) >= attackDistance) {
-			return new EnemyStateAttack ();
-		}
         // if (condition is true) trurn new <EnemyStateSomething>();
         return null;
     }

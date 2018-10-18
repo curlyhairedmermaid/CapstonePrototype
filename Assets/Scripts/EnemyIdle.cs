@@ -19,14 +19,7 @@ public class EnemyStateIdle : EnemyState
    override public EnemyState Update() {
         //Put behavior here!'
         //put transitions here!
-		transform.LookAt(Player);
 
-		if (Vector3.Distance(transform.position, Player.position) >= MinDist)
-		{
-
-			return new EnemyStatePursue();
-
-		}
         // if (condition is true) trurn new <EnemyStateSomething>();
         return null;
     }

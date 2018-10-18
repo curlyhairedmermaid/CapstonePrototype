@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class PlayerMovementArrow : MonoBehaviour {
 
-    // Use this for initialization
+   /// <summary>
+   /// The camera transform.
+   /// </summary>
     public Transform cam;
+	/// <summary>
+	/// Reference to the rigidbody
+	/// </summary>
     private Rigidbody body;
+
+	/// <summary>
+	/// Start this instance.
+	/// </summary>
 	void Start () {
         body = GetComponent<Rigidbody>();
 		

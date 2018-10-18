@@ -9,6 +9,9 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class ToTac : MonoBehaviour
 {
+	/// <summary>
+	/// on click switch to TAC
+	/// </summary>
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))

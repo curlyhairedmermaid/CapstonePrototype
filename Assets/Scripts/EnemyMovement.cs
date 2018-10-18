@@ -6,9 +6,34 @@ public class EnemyMovement: MonoBehaviour {
 
     // Use this for initialization
     private EnemyState enemyState;
+	/// <summary>
+	/// the player's location
+	/// </summary>
+	public Transform Player;
+	/// <summary>
+	/// The move speed for the enemy
+	/// </summary>
+	int MoveSpeed = 4;
+	/// <summary>
+	/// The max dist the enemy will follow
+	/// </summary>
+	int MaxDist = 6;
+	/// <summary>
+	/// The minimum dist the enemy will follow
+	/// </summary>
+	int MinDist = 3;
+	/// <summary>
+	/// The attack distance for the enemy
+	/// </summary>
+	int attackDistance = 1;
+	bool isAttacking = false;
+	bool isPursuing = false;
+	bool isIdle = false;
+	bool isDead = false;
+
     void Start()
     {
-        SwitchEnemyState(new EnemyIdle());
+		isIdle = true;
 
     }
 
@@ -17,21 +42,51 @@ public class EnemyMovement: MonoBehaviour {
     /// </summary>
         public void Update()
         {
-        if (enemyState != null)
-        {
-            EnemyState newState = enemyState.Update();
-            SwitchEnemyState(newState);
-        }
+		if (isDead) {
+			Dead ();
+		} else if (isAttacking) {
+			Attacking ();
+		} else if (isPursuing) {
+			Pursuing ();
+		} else {
+			Idle ();
+		}
+				
     }
-    private void SwitchEnemyState(EnemyState newState)
+	/// <summary>
+	/// Switchs the state of the enemy.
+	/// </summary>
+	/// <param name="newState">New state to be switched to</param>
+    private void Attacking()
     {
-        if (newState != null)
-        {
-            //switch to new state
-            if (enemyState != null) enemyState.onEnd();
-            enemyState = newState;
-            enemyState.onBegin(this);
-        }
+		Debug.Log("I Am Attacking");
     }
+	private void Idle()
+	{
+		transform.LookAt(Player);
+
+		if (Vector3.Distance(transform.position, Player.position) >= MinDist)
+		{
+
+			isPursuing = true;
+
+		}
+	}
+	private void Pursuing()
+	{
+		
+		transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+
+		if (Vector3.Distance (transform.position, Player.position) <= MaxDist) {
+			isIdle = true;
+
+		} else if (Vector3.Distance (transform.position, Player.position) <= attackDistance) {
+			isAttacking = true;
+		}
+	}
+	private void Dead()
+	{
+		print ("I am dead");
+	}
 
 }

@@ -5,10 +5,13 @@ using UnityEngine.SceneManagement;
 
 
 /// <summary>
-/// Switches scenes to Tac
+/// Switches scenes to Level 1
 /// </summary>
 public class ToLevel1 : MonoBehaviour
 {
+	/// <summary>
+	/// if click, go to level 1
+	/// </summary>
 	void Update()
 	{
 		if (Input.GetButtonDown("Fire1"))

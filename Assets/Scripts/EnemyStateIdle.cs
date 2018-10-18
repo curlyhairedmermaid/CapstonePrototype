@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// Extends from Enemystate. For when the Enemy is Idle
 /// </summary>
-public class EnemyStateIdle : EnemyState
+public class EnemyIdle : EnemyState
 {
 
 	/// <summary>
@@ -34,15 +34,8 @@ public class EnemyStateIdle : EnemyState
 	override public EnemyState Update() {
 		//Put behavior here!'
 		//put transitions here!
-		transform.LookAt(Player);
 
-		if (Vector3.Distance(transform.position, Player.position) >= MinDist)
-		{
-
-			return new EnemyStatePursue();
-
-		}
-		// if (condition is true) trurn new <EnemyStateSomething>();
+		// if (condition is true) return new <EnemyStateSomething>();
 		return null;
 	}
 

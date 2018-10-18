@@ -72,8 +72,13 @@ public class OrbitalCamera : MonoBehaviour
             return (pitch - pitchMin) / (pitchMax - pitchMin);
         }
     }
-    ///
+    /// <summary>
+    /// The cam.
+    /// </summary>
     Transform cam;
+	/// <summary>
+	/// Start this instance.
+	/// </summary>
     void Start()
     {
         cam = GetComponentInChildren<Camera>().transform;
@@ -90,7 +95,9 @@ public class OrbitalCamera : MonoBehaviour
 
         Zoom();
     }
-
+	/// <summary>
+	/// Zooms in
+	/// </summary>
     private void Zoom()
     {
         dollyPosition += new Vector3(0, 0, Input.mouseScrollDelta.y);
@@ -100,7 +107,9 @@ public class OrbitalCamera : MonoBehaviour
 
         cam.localPosition = Vector3.Lerp(cam.localPosition, dollyPosition, (Time.deltaTime * dollyEaseMultiplier));
     }
-
+	/// <summary>
+	/// Looks around.
+	/// </summary>
     private void LookAround()
     {
         float lookX = Input.GetAxis("Mouse X");
@@ -113,7 +122,9 @@ public class OrbitalCamera : MonoBehaviour
 
        transform.eulerAngles = new Vector3(pitch, yaw, 0);
     }
-
+	/// <summary>
+	/// Raises the draw gizmos event.
+	/// </summary>
     void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(transform.position, Vector3.one);
