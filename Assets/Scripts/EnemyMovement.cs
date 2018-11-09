@@ -43,16 +43,25 @@ public class EnemyMovement: MonoBehaviour {
         }else if (Vector3.Distance(transform.position, Player.position) <= maxDist && Vector3.Distance(transform.position, Player.position) <= minDist)
         {
             transform.position += transform.forward * moveSpeed * Time.deltaTime;
-            print("attack");
+            //print("attack");
             moveSpeed = 1f;
+			isAttacking = true;
             ///attack
 
         }
         else if (Vector3.Distance(transform.position, Player.position) <= maxDist)
         {
+			//print ("pursue");
             moveSpeed = 2.5f;
             transform.position += transform.forward * moveSpeed * Time.deltaTime;
         }
 
     }
+	void OnCollisionEnter(Collision collision){
+		print ("fff");
+		if (isAttacking == true) {
+			PlayerHealth.health--;
+			print (PlayerHealth.health);
+		}
+	}
 }
