@@ -48,6 +48,6 @@ public class PlayerMovementArrow : MonoBehaviour {
         Vector3 move = ballForward * v + ballRight * h;
         Vector3 torque = Vector3.Cross(Vector3.up, move);
         //body.AddForce(move * Time.deltaTime * 2500);
-        body.AddTorque(torque * Time.deltaTime * 100000);
+        body.AddTorque(torque * Time.deltaTime * 90);
     }
 }
