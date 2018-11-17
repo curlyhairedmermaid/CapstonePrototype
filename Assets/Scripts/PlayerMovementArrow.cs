@@ -1,53 +1,65 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
-public class PlayerMovementArrow : MonoBehaviour {
+public class PlayerMovementArrow : MonoBehaviour
+{
 
-   /// <summary>
-   /// The camera transform.
-   /// </summary>
-    public Transform cam;
-	/// <summary>
-	/// Reference to the rigidbody
-	/// </summary>
-    private Rigidbody body;
+    float moveSpeed = 2f;            // Player's speed when walking.
+    float rotationSpeed = 6f;
+    float jumpHeight = 10f;         // How high Player jumps
+    Vector3 EulerAngleVelocity;
 
-	/// <summary>
-	/// Start this instance.
-	/// </summary>
-	void Start () {
-        body = GetComponent<Rigidbody>();
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    Vector3 moveDirection;
+
+    Rigidbody rb;
+
+    // Using the Awake function to set the references
+    void Awake()
+
     {
-        MoveAround();
-        //makes player jump
-        if (Input.GetButtonDown("Jump"))
+        
+        rb = GetComponent<Rigidbody>();
+    }
+
+    void FixedUpdate()
+    {
+        Move();
+       
+    }
+
+    void Move()
+    {
+       
+        float hAxis = Input.GetAxis("Horizontal");
+        float vAxis = Input.GetAxis("Vertical");
+        
+        Vector3 movement = new Vector3(-hAxis, 0f, -vAxis);
+        transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
+        print(movement);
+        rb.rotation = Quaternion.LookRotation(-movement);
+        rb.position += movement* moveSpeed * Time.deltaTime;
+
+        if (hAxis > 0)
         {
-            body.AddForce(Vector3.up*7, ForceMode.Impulse);
+            TurnLeft();
+        } else if (hAxis < 0)
+        {
+            TurnRight();
         }
     }
-    /// <summary>
-    /// Moves Around the players
-    /// </summary>
-    private void MoveAround()
+    void TurnLeft()
     {
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        EulerAngleVelocity = new Vector3(0, 100, 0);
+        Quaternion deltaRotation = Quaternion.Euler(EulerAngleVelocity * Time.deltaTime);
+        rb.MoveRotation(rb.rotation * deltaRotation);
 
-        Vector3 ballForward = cam.forward;
-        ballForward.y = 0;
-        ballForward.Normalize();
+    }
+    void TurnRight()
+    {
+        EulerAngleVelocity = new Vector3(0, -100, 0);
+        Quaternion deltaRotation = Quaternion.Euler(EulerAngleVelocity * Time.deltaTime);
+        rb.MoveRotation(rb.rotation * deltaRotation);
 
-        Vector3 ballRight = new Vector3(ballForward.z, 0, -ballForward.x);
-
-        Vector3 move = ballForward * v + ballRight * h;
-        Vector3 torque = Vector3.Cross(Vector3.up, move);
-        //body.AddForce(move * Time.deltaTime * 2500);
-        body.AddTorque(torque * Time.deltaTime * 90);
     }
 }
