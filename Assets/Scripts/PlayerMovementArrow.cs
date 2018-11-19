@@ -25,7 +25,12 @@ public class PlayerMovementArrow : MonoBehaviour
     void FixedUpdate()
     {
         Move();
-       
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            rb.AddForce(Vector3.up * 5, ForceMode.Impulse);
+        }
+
     }
 
     void Move()
