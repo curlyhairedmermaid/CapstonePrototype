@@ -30,7 +30,7 @@ public class PlayerMovementArrow : MonoBehaviour
         {
             rb.AddForce(Vector3.up * 5, ForceMode.Impulse);
         }
-
+        print(transform.rotation);
     }
 
     void Move()
@@ -41,7 +41,6 @@ public class PlayerMovementArrow : MonoBehaviour
         
         Vector3 movement = new Vector3(-hAxis, 0f, -vAxis);
         transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
-        print(movement);
         rb.rotation = Quaternion.LookRotation(-movement);
         rb.position += movement* moveSpeed * Time.deltaTime;
 

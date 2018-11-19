@@ -9,6 +9,7 @@ public class CameraController : MonoBehaviour
     /// The transform to the target
     /// </summary>
     public Transform viewTarget;
+    private bool lookAt = true;
     // Use this for initialization
     void Start()
     {
@@ -24,7 +25,8 @@ public class CameraController : MonoBehaviour
         if (viewTarget)
         {
             //easing
-            transform.position += new Vector3((viewTarget.position.x - (transform.position.x)) * .1f, 0, (viewTarget.position.z - (transform.position.z - 6)) * .1f);
+            transform.position += new Vector3((viewTarget.position.x - (transform.position.x)) * .1f, (viewTarget.position.y - (transform.position.y - 6)) * .1f, (viewTarget.position.z - (transform.position.z - 5)) * .1f);
         }
     }
 }
+
